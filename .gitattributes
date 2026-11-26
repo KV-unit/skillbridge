@@ -1,0 +1,4 @@
+# Keep line endings the same on every computer (avoids "LF will be replaced by CRLF" warnings).
+* text=auto eol=lf
+*.png binary
+*.jpg binary
