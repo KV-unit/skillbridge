@@ -5,7 +5,7 @@ SkillBridge helps skilled refugees turn degrees, licences and experience into ev
 
 Built for the ILO mini-hackathon *"Unlocking Displaced Talent: Pathways for Skilled Refugees"* (Track 1: credential recognition and skills validation, with pieces of tracks 2 and 3).
 
-- **Live app:** {{LIVE_URL}}
+- **Live app:** https://skillbridge-three-psi.vercel.app
 - **Repository:** https://github.com/KV-unit/skillbridge
 - **Project write-up and demo script:** [docs/SUBMISSION.md](docs/SUBMISSION.md)
 

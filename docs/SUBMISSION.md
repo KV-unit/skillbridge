@@ -2,7 +2,7 @@
 
 **Hackathon:** ILO mini-hackathon, *Unlocking Displaced Talent: Pathways for Skilled Refugees*
 **Track:** 1, Credential recognition and skills validation (with pieces of tracks 2 and 3)
-**Live app:** {{LIVE_URL}}
+**Live app:** https://skillbridge-three-psi.vercel.app
 **Repository:** https://github.com/KV-unit/skillbridge
 
 ## The problem in one paragraph
