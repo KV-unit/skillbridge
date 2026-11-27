@@ -111,3 +111,8 @@ It checks, among other things, that a candidate cannot verify themselves or beco
 ## Limitations and next steps
 
 The assessments are short knowledge screens, not licences, and fee-waiver availability stands in for partner funds. Next: reviewer organisations with their own queues, translations and a low-bandwidth mode, issuer confirmation by secure link, employer accounts, and anonymised reporting for partners.
+
+## Pitch deck
+
+- Slides: https://skillbridge-three-psi.vercel.app/pitch/
+- PDF copy: https://skillbridge-three-psi.vercel.app/pitch/skillbridge-pitch.pdf

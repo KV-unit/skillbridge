@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkillBridge - pitch deck</title>
+<meta name="description" content="SkillBridge helps skilled refugees prove what they know, even when their papers are lost. ILO mini-hackathon, Track 1.">
+<style>
+:root{--brand:#0b6e66;--brand-dark:#08524c;--brand-soft:#e1f2f0;--ink:#12202f;--muted:#4b5b6b;--line:#d5e0e0;--bg:#f5f8f8;--amber:#b45309;--amber-soft:#fdf1dc}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#0d1b27;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink)}
+.viewport{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+.stage{position:relative;width:min(100vw,177.78vh);aspect-ratio:16/9;container-type:inline-size;background:#fff;overflow:hidden}
+.slide{display:none;position:absolute;inset:0;padding:4.5cqw 6cqw 7.2cqw;background:var(--bg)}
+.slide.on{display:flex;flex-direction:column}
+.slide h1{font-size:5.4cqw;line-height:1.08;margin:0 0 2cqw;letter-spacing:-.02em}
+.slide h2{font-size:3.4cqw;line-height:1.12;margin:0 0 1.6cqw;letter-spacing:-.015em}
+.slide p{font-size:1.7cqw;line-height:1.5;margin:0 0 1.1cqw;color:var(--muted)}
+.slide .kicker{font-size:1.15cqw;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:1cqw}
+.slide.dark{background:linear-gradient(135deg,#06433e 0%,#0b6e66 60%,#12877d 100%);color:#fff}
+.slide.dark p{color:#d6eeea}.slide.dark .kicker{color:#9fe0d6}
+.brandmark{display:flex;align-items:center;gap:1cqw;font-weight:800;font-size:2.2cqw;margin-bottom:auto}
+.brandmark .dot{width:3.2cqw;height:3.2cqw;border-radius:.8cqw;background:#fff;display:grid;place-items:center;color:var(--brand);font-size:1.9cqw}
+.hero-line{font-size:5.8cqw;line-height:1.04;font-weight:800;letter-spacing:-.025em;margin:0 0 2cqw;max-width:66cqw}
+.pills{display:flex;gap:1cqw;flex-wrap:wrap;margin-top:1.4cqw}
+.pill{font-size:1.25cqw;font-weight:700;padding:.5cqw 1.2cqw;border-radius:99px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff}
+.cols{display:grid;gap:2cqw;flex:1;min-height:0}
+.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,1fr)}.c5{grid-template-columns:repeat(5,1fr);gap:1.2cqw}
+.card{background:#fff;border:1px solid var(--line);border-radius:1.2cqw;padding:1.8cqw;display:flex;flex-direction:column}
+.card h3{font-size:1.9cqw;margin:0 0 .8cqw;letter-spacing:-.01em}
+.card p{font-size:1.5cqw;margin:0}
+.num{width:3cqw;height:3cqw;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:800;font-size:1.5cqw;margin-bottom:1cqw}
+.step h3{font-size:1.7cqw}.step p{font-size:1.25cqw}
+.shot{border:1px solid var(--line);border-radius:1cqw;overflow:hidden;background:#fff;box-shadow:0 1.2cqw 3cqw rgba(8,40,45,.16);min-height:0;display:flex;flex-direction:column}
+.shot img{width:100%;flex:1;min-height:0;object-fit:cover;object-position:top;display:block}
+.shot .cap{font-size:1.15cqw;font-weight:700;padding:.7cqw 1.2cqw;background:var(--brand-soft);color:var(--brand-dark)}
+.big{font-size:2.3cqw;font-weight:700;color:var(--ink);line-height:1.3;max-width:80cqw}
+.ticks{list-style:none;padding:0;margin:0}
+.ticks li{font-size:1.5cqw;line-height:1.4;padding:.5cqw 0 .5cqw 2.4cqw;position:relative;color:var(--ink)}
+.ticks li::before{content:"";position:absolute;left:0;top:.95cqw;width:1.3cqw;height:1.3cqw;border-radius:50%;background:var(--brand)}
+.badge{display:inline-block;font-size:1.15cqw;font-weight:800;padding:.35cqw 1cqw;border-radius:99px}
+.b-ok{background:var(--brand-soft);color:var(--brand-dark)}.b-warn{background:var(--amber-soft);color:var(--amber)}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:1cqw;overflow:hidden}
+th,td{text-align:left;padding:1cqw 1.4cqw;font-size:1.3cqw;line-height:1.35;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--brand-soft);color:var(--brand-dark);font-size:1.15cqw;letter-spacing:.06em;text-transform:uppercase}
+td:first-child{font-weight:800;width:22%;color:var(--ink)}td{color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.links{display:grid;gap:1cqw;margin-top:1.6cqw}
+.links a{color:#fff;font-weight:700;font-size:1.9cqw;text-decoration:none;border-bottom:2px solid rgba(255,255,255,.45);width:max-content;padding-bottom:.2cqw}
+.nav{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:1cqw 2cqw;z-index:5;pointer-events:none}
+.nav>*{pointer-events:auto}
+.nav button{font:inherit;font-size:1.2cqw;font-weight:700;padding:.6cqw 1.5cqw;border-radius:99px;border:1px solid rgba(11,110,102,.35);background:rgba(255,255,255,.92);color:var(--brand-dark);cursor:pointer}
+.nav button:hover{background:#fff;border-color:var(--brand)}
+.nav button:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.count{font-size:1.15cqw;font-weight:700;color:var(--muted);background:rgba(255,255,255,.92);padding:.5cqw 1.1cqw;border-radius:99px}
+.bar{position:absolute;left:0;top:0;height:.45cqw;background:#5fd0c3;z-index:6;transition:width .25s}
+.hint{position:fixed;left:50%;bottom:6px;transform:translateX(-50%);font-size:12px;color:#8fa3b3;z-index:9}
+@media print{
+  @page{size:1280px 720px;margin:0}
+  html,body{background:#fff;height:auto}
+  .viewport{position:static;display:block}
+  .stage{width:1280px;aspect-ratio:auto;height:auto;overflow:visible}
+  .slide{display:flex!important;flex-direction:column;position:relative;width:1280px;height:720px;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .nav,.bar,.hint{display:none!important}
+}
+@media (max-aspect-ratio:4/5){.hint{display:none}}
+</style>
+</head>
+<body>
+<div class="viewport"><div class="stage" id="stage">
+<div class="bar" id="bar"></div>
+
+<section class="slide dark on" aria-label="Title">
+  <div class="brandmark"><span class="dot">&#9633;</span>SkillBridge</div>
+  <div class="kicker">ILO mini-hackathon &middot; Track 1 &middot; Credentials and skills validation</div>
+  <div class="hero-line">Prove what you know, even when your papers are lost.</div>
+  <p style="font-size:2cqw;max-width:56cqw">A way for skilled refugees to turn qualifications and experience into evidence that employers can trust, and be honest about what is still unproven.</p>
+  <div class="pills"><span class="pill">Reviewed by people</span><span class="pill">Tested by assessments</span><span class="pill">Verified is separate from claimed</span></div>
+</section>
+
+<section class="slide" aria-label="The problem">
+  <div class="kicker">The problem</div>
+  <h1>Talent arrives. Proof does not.</h1>
+  <div class="cols c3" style="margin-top:1cqw">
+    <div class="card"><h3>Papers are lost</h3><p>People flee with what they can carry. Degrees, licences and reference letters are left behind, destroyed, or impossible to request from an issuer in a conflict zone.</p></div>
+    <div class="card"><h3>Systems demand certificates</h3><p>Hiring and registration usually accept paper and nothing else. A nurse or an accountant is pushed into work far below their skill. That waste is called brain waste.</p></div>
+    <div class="card"><h3>Employers cannot tell what is real</h3><p>Most are not unwilling. They simply have no trustworthy way to separate verified experience from a claim, so the safest choice is to say no.</p></div>
+  </div>
+  <p class="big" style="margin-top:2cqw;font-size:2cqw">The gap is not skill. It is believable evidence.</p>
+</section>
+
+<section class="slide" aria-label="How it works">
+  <div class="kicker">The solution</div>
+  <h1>Five steps from a claim to a trusted profile</h1>
+  <div class="cols c5" style="margin-top:1.2cqw">
+    <div class="card step"><div class="num">1</div><h3>Claim</h3><p>List qualifications and experience. Attach whatever evidence exists. A claim can be sent with no files.</p></div>
+    <div class="card step"><div class="num">2</div><h3>Check</h3><p>A reviewer opens the evidence and records how it was verified: documents, issuer, reference or interview.</p></div>
+    <div class="card step"><div class="num">3</div><h3>Test</h3><p>Short assessments, scored on the server, show baseline knowledge when paper cannot.</p></div>
+    <div class="card step"><div class="num">4</div><h3>Bridge</h3><p>Gaps point to a recognised certification, evaluation or registration, with a fee-waiver request.</p></div>
+    <div class="card step"><div class="num">5</div><h3>Connect</h3><p>A public profile shows verified and claimed separately. Employers send an introduction, no account needed.</p></div>
+  </div>
+</section>
+
+<section class="slide" aria-label="The product">
+  <div class="kicker">The prototype is live</div>
+  <h2>Start with nothing but a name. The checklist shows what to do next.</h2>
+  <div class="cols c2" style="margin-top:.6cqw">
+    <div class="shot"><img src="img/dashboard.jpg" alt="Candidate dashboard with next steps and verification level"><div class="cap">Dashboard: next steps and verification level</div></div>
+    <div class="shot"><img src="img/my-claims.jpg" alt="My claims page with evidence upload and review status"><div class="cap">My claims: evidence upload and review status</div></div>
+  </div>
+</section>
+
+<section class="slide" aria-label="Trust through review">
+  <div class="kicker">The trust step</div>
+  <h2>A person checks it, and the badge says how.</h2>
+  <div class="cols c2" style="margin-top:.6cqw">
+    <div class="card" style="gap:.9cqw">
+      <span class="badge b-warn" style="align-self:flex-start">Illustration of the reviewer decision</span>
+      <h3 style="font-size:2cqw;margin-top:.4cqw">Degree: BSc Computer Science</h3>
+      <p>Evidence attached: diploma-scan.pdf (opens through a link that expires in five minutes)</p>
+      <div style="border:1px solid var(--line);border-radius:1cqw;padding:1.1cqw 1.4cqw;background:var(--bg)">
+        <p style="font-weight:800;color:var(--ink);margin-bottom:.5cqw">How was this verified?</p>
+        <p style="color:var(--ink)">&#9679; Documents reviewed &nbsp;&nbsp; &#9675; Issuer confirmed<br>&#9675; Reference checked &nbsp;&nbsp;&nbsp; &#9675; Interview</p>
+      </div>
+      <div style="display:flex;gap:1cqw;margin-top:auto"><span class="badge b-ok" style="font-size:1.4cqw;padding:.6cqw 1.6cqw">Approve</span><span class="badge b-warn" style="font-size:1.4cqw;padding:.6cqw 1.6cqw">Send back with a note</span></div>
+    </div>
+    <div class="card" style="justify-content:center">
+      <h3>Four ways to verify</h3>
+      <ul class="ticks"><li>Documents reviewed</li><li>Issuer confirmed</li><li>Reference checked</li><li>Interview</li></ul>
+      <p style="margin-top:1cqw">Rejected claims come back with a note on what is missing. A reviewer cannot review their own claims.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" aria-label="Public profile">
+  <div class="kicker">For employers</div>
+  <h2>Verified and claimed, side by side.</h2>
+  <div class="cols c2" style="margin-top:.6cqw;grid-template-columns:1fr 1fr">
+    <div class="shot"><img src="img/public-profile.jpg" alt="Public profile separating verified from claimed"><div class="cap">A public profile: what was checked, and how</div></div>
+    <div style="display:flex;flex-direction:column;gap:1.2cqw;min-height:0">
+      <div class="shot" style="flex:1"><img src="img/talent-directory.jpg" alt="Talent directory with filters"><div class="cap">Talent directory: filter by field and by verification</div></div>
+      <div class="card"><span class="badge b-ok">Verified</span><p style="margin-top:.7cqw">Approved by a reviewer, with the method shown.</p><span class="badge b-warn" style="margin-top:.9cqw;align-self:flex-start">Claimed, not yet verified</span><p style="margin-top:.7cqw">Shown honestly, never dressed up as proof.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" aria-label="Skills tests and bridging">
+  <div class="kicker">When paper cannot close the gap</div>
+  <h2>Test the skill. Then point to the recognised route.</h2>
+  <div class="cols c2" style="margin-top:.6cqw">
+    <div class="shot"><img src="img/assessment.jpg" alt="Skills assessment"><div class="cap">Assessments: scored in the database, key never sent to the browser</div></div>
+    <div class="shot"><img src="img/bridging.jpg" alt="Bridging steps with certifications and registrations"><div class="cap">Bridging: certifications, evaluations and registrations</div></div>
+  </div>
+</section>
+
+<section class="slide" aria-label="Benchmarks">
+  <div class="kicker">Against the five benchmarks</div>
+  <h2>What the prototype does for each</h2>
+  <table>
+    <thead><tr><th>Benchmark</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td>Credential and skills verification</td><td>Every claim has a status and a recorded method. Assessments are scored server-side. Levels 0 to 3 summarise the result.</td></tr>
+      <tr><td>Access and compliance readiness</td><td>Bridging routes name the certifications, credential evaluations and registrations that unlock formal work, with reviewed fee-waiver requests.</td></tr>
+      <tr><td>Practical and market fit</td><td>Public profiles show exactly what is verified and how. Employers filter the directory and introduce themselves directly.</td></tr>
+      <tr><td>Social and SDG impact</td><td>SDG 8 decent work, SDG 4 education and upskilling, SDG 10 reduced inequalities, SDG 16 transparent institutions, SDG 17 partnerships.</td></tr>
+      <tr><td>Sustainability and scalability</td><td>Reviewers are the only manual step and any NGO, university or professional body can supply them. New fields are rows, not code. Hosting costs almost nothing.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="slide" aria-label="Trust and honesty">
+  <div class="kicker">Built to be trusted</div>
+  <h2>The rules live in the database, not just the screen.</h2>
+  <div class="cols c2" style="margin-top:.6cqw">
+    <div class="card"><h3>Enforced by PostgreSQL</h3>
+      <ul class="ticks"><li>A candidate cannot mark themselves verified</li><li>Editing a verified claim sends it back to unverified</li><li>Reviewers cannot review their own claims</li><li>Evidence is private, with links that expire in five minutes</li><li>Reviewer notes and emails are never public</li></ul>
+      <p style="margin-top:.8cqw">Covered by security tests that run against a real PostgreSQL.</p></div>
+    <div class="card"><h3>Honest about what is a prototype</h3>
+      <p><strong style="color:var(--ink)">Real:</strong> accounts, claims, uploads, reviewer decisions, server-side scoring, public profiles, the directory, introductions and fee-waiver requests, on a live database.</p>
+      <p style="margin-top:1cqw"><strong style="color:var(--ink)">Starter content:</strong> the assessments are short knowledge screens, not licences. Fee-waiver availability stands in for partner funds. Demo profiles are fictional and marked.</p></div>
+  </div>
+</section>
+
+<section class="slide dark" aria-label="Scale and next steps">
+  <div class="kicker">Next steps</div>
+  <h1>From prototype to programme</h1>
+  <div class="cols c3" style="flex:0 1 auto;margin-top:1cqw">
+    <div class="card" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);color:#fff"><h3>Reviewer partners</h3><p style="color:#d6eeea">NGOs, universities and professional bodies run their own queues.</p></div>
+    <div class="card" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);color:#fff"><h3>Reach</h3><p style="color:#d6eeea">Translations and a low-bandwidth mode for the people who need it most.</p></div>
+    <div class="card" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);color:#fff"><h3>Stronger proof</h3><p style="color:#d6eeea">Issuer confirmation by secure link, employer accounts and anonymised partner reports.</p></div>
+  </div>
+  <div class="links" style="margin-top:auto">
+    <a href="https://skillbridge-three-psi.vercel.app" target="_blank" rel="noopener">Live prototype: skillbridge-three-psi.vercel.app</a>
+    <a href="https://github.com/KV-unit/skillbridge" target="_blank" rel="noopener">Code: github.com/KV-unit/skillbridge</a>
+  </div>
+</section>
+
+<div class="nav"><button type="button" id="prev" aria-label="Previous slide">&larr; Back</button><span class="count" id="count">1 / 10</span><button type="button" id="next" aria-label="Next slide">Next &rarr;</button></div>
+</div></div>
+<div class="hint">Arrow keys, space, or swipe to move</div>
+<noscript><style>.slide{display:flex!important;flex-direction:column;position:relative;height:56.25vw;margin-bottom:8px}.stage{overflow:visible}.viewport{position:static;display:block}html,body{height:auto}.nav,.bar,.hint{display:none}</style></noscript>
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var i=0,count=document.getElementById('count'),bar=document.getElementById('bar');
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i)});
+    count.textContent=(i+1)+' / '+slides.length;
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    try{history.replaceState(null,'','#'+(i+1))}catch(e){}
+  }
+  var h=parseInt((location.hash||'').slice(1),10);
+  show(isNaN(h)?0:h-1);
+  document.getElementById('next').onclick=function(){show(i+1)};
+  document.getElementById('prev').onclick=function(){show(i-1)};
+  document.addEventListener('keydown',function(e){
+    if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].indexOf(e.key)>-1){e.preventDefault();show(i+1)}
+    else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].indexOf(e.key)>-1){e.preventDefault();show(i-1)}
+    else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1);
+  });
+  var x0=null;
+  document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)show(i+(dx<0?1:-1));x0=null},{passive:true});
+})();
+</script>
+</body>
+</html>
